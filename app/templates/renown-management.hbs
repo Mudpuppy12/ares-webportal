@@ -1,0 +1,45 @@
+{{page-title "renown-management"}}
+<h1>{{this.model.people.title}} Management</h1>
+
+<RenownNav @orgs={{this.model.orgs}} />
+
+<div class="table-responsive">
+
+<table class="table table-striped">
+  <thead>
+      <th></th>
+      {{#each this.model.people.titles as |title|}}
+      <th>{{title}}</th>
+      {{/each}}
+  </thead>
+
+  <tbody>
+    {{#each this.model.people.people as |char| }}
+    <tr>
+      {{#each-in char as |field value| }}
+        <td>
+          {{#if (eq field 'char')}}
+            <CharIconInline @char={{value}} />
+          {{else}}
+             {{value}}
+          {{/if}}
+        </td>
+        {{/each-in}}
+    </tr>
+    {{/each}}
+  </tbody>
+
+</table>
+</div>
+
+<br><br>
+<AddRenownChar @chars={{this.model.people.charnames}} @types={{this.model.people.standard_types}} @title={{this.model.people.title}} @addRenownEntry={{this.addRenownEntry}}/>
+<ResetAllRenown @title={{this.model.people.title}} @resetAllRenown={{this.resetAllRenown}} />
+
+<div align="right">
+<button name="addentry" {{on 'click' (fn this.doAddRenownEntry true)}} class="btn btn-secondary">Add Entry</button>
+<button name="renownreset" {{on 'click' (fn this.doResetAllRenown true)}} class="btn btn-secondary">Reset All</button>
+</div>
+
+{{outlet}}
+

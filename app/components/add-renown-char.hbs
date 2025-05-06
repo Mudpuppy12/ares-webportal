@@ -1,0 +1,23 @@
+<BsModalSimple @title="Add {{this.title}} Entry" @closeTitle="Cancel" @submitTitle="Add Entry" @size={{null}} @fade={{true}} 
+      @open={{this.addRenownEntry}} @onSubmit={{this.doAddRenownEntry}} @onHide={{this.cancelAddRenownEntry}}>
+
+    <p>Character Name:</p>
+       <select onchange={{this.onRenownNameSelected}}>
+       {{#each this.chars as |charname|}}
+           <option value={{charname}}>{{charname}}</option>
+       {{/each}}
+       </select>
+    <Input @type="text" size={{25}} id="renownName" @enter={{this.doRenownAddEntry}} @value={{this.renownName}} />
+    <p>Predefined Type (optional):</p>
+       <select id="renownType" onchange={{this.updateRenownPoints}}>
+       {{#each this.types as |typename|}}
+           <option value={{typename.points}}>{{typename.type}}</option>
+       {{/each}}
+       </select>
+   
+    <p>Reason:</p>
+    <Input @type="text" size={{30}} id="renownTitle" @enter={{this.doRenownAddEntry}} @value={{this.renownTitle}} />
+    <p>{{this.title}} Points:</p>
+    <Input @type="integer" size={{10}} id="renownPoints" @enter={{this.doRenownAddEntry}} @value={{this.renownPoints}} />
+
+ </BsModalSimple>

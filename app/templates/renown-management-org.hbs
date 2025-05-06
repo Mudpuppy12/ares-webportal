@@ -1,0 +1,39 @@
+{{page-title this.model.orgs.title}}
+<h1>{{this.model.org}}</h1>
+
+<RenownNav @orgs={{this.model.orgs}} />
+
+<div class="table-responsive">
+
+<table class="table table-striped">
+  <thead>
+      <th></th>
+      {{#each this.model.people.titles as |title|}}
+      <th>{{title}}</th>
+      {{/each}}
+  </thead>
+  
+  <tbody>
+    {{#each this.model.people.people as |char| }}
+    <tr>
+      {{#each-in char as |field value| }}
+        <td>
+          {{#if (eq field 'char')}}
+            <CharIconInline @char={{value}} />
+          {{else}} 
+            {{value}}
+          {{/if}}
+        </td>
+      {{/each-in}}
+    </tr>
+    {{/each}}
+  </tbody>
+
+</table>
+
+</div>
+
+<p>{{this.model.people.orgtype}} Total: {{this.model.people.renown}}</p> 
+
+{{outlet}}
+<AddRenownChar @addRenownEntry={{this.addRenownEntry}}/>

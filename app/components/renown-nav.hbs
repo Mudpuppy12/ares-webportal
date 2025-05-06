@@ -1,0 +1,6 @@
+<p>
+<LinkTo @route="renown-management">[All]</LinkTo>&nbsp;
+{{#each this.orgs as |org| }}
+<LinkTo @route="renown-management-org" @model={{org}}>[{{org}}]</LinkTo>&nbsp;
+{{/each}}
+</p>

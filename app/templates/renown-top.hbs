@@ -1,0 +1,17 @@
+{{page-title "renown-top"}}
+<h1>{{this.model.toplist.renown_title}} - Current Rankings</h1>
+
+   <div class="row">
+       <div class="col col-md-6 col-sm-12">
+            <h2>Top Ten Characters</h2>
+            <RenownTopList @mode="char" @list={{this.model.toplist.chars}} @renowntitle={{this.model.toplist.renown_title}}/>
+       </div>
+       {{#if this.model.toplist.orgs}}
+       <div class="col col-md-6 col-sm-12">
+            <h2>Top Ten {{this.model.toplist.orgname}}</h2>
+            <RenownTopList @mode="org" @showLinks={{this.model.toplist.show_links}} @prefix={{this.model.toplist.org_prefix}} @postfix={{this.model.toplist.org_postfix}} @list={{this.model.toplist.orgs}} @renowntitle={{this.model.toplist.renown_title}}/>
+       </div>
+       {{/if}}
+   </div>
+
+{{outlet}}

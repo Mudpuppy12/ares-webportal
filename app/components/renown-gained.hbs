@@ -1,0 +1,48 @@
+    <div class="row">
+          <div class="col col-xs-12 col-sm-4">
+            Reason:
+          </div>
+          <div class="col col-xs-12 col-sm-3" align="right">
+            Points:
+          </div>
+          <div class="col col-xs-12 col-sm-3" align="right">
+            Added on:
+          </div>
+          <div class="col col-xs-12 col-sm-2" align="right">
+            by:
+          </div>
+    </div>
+    <div class="row renown-line">
+    </div>
+    {{#each this.list as |entry| }}
+        <div class="row">
+          <div class="col col-xs-12 col-sm-4">
+            {{entry.title}}
+          </div>
+          <div class="col col-xs-12 col-sm-3" align="right">
+            {{entry.value}}
+          </div>
+          <div class="col col-xs-12 col-sm-3" align="right">
+            {{entry.created_at}}
+          </div>
+          <div class="col col-xs-12 col-sm-2" align="right">
+            {{entry.adminname}}
+          </div>
+        <div class="clearfix"/>
+        </div>
+    {{/each}}
+    <div class="row renown-line">
+    </div>
+    <div class="row">
+        <div class="col col-xs-12 col-sm-4">
+
+           Total:
+       </div>
+       <div class="col col-xs-12 col-sm-3" align="right">
+           {{this.total}}
+       </div>
+       <div class="col col-xs-12 col-sm-3">
+       </div>
+       <div class="col col-xs-12 col-sm-2">
+       </div>
+    </div>
